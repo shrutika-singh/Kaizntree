@@ -1,0 +1,125 @@
+body{
+    font-family: system-ui;
+}
+.addNewCategory {
+    background-color: #44a047;
+    color: white;
+    border: none;
+    height: 34px;
+    border-radius: 3px;
+    padding: 10px;
+    width: 20%;
+}
+.optionsButton{
+    height: 34px;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    color: #b8b8b8;
+    width: 20%;
+}
+.search{
+    height: 34px;
+    border: none;
+    width: 90%;
+}
+.itemsTable{
+    box-shadow: 0.5px 0.5px 0.5px 0.5px #d6d4d4;
+    margin: 10px 0 10px;
+    padding: 10px;
+    color: #8a8787;
+    border: 0.5px solid #d6d4d4;
+}
+.contents{
+    border-collapse: collapse;
+    width: -webkit-fill-available;
+}
+.contents td{
+    text-align: center;
+}
+.contents tbody tr{
+    border-bottom: 1px solid #d6d4d4;
+    padding: 5px;
+    border-collapse: collapse;
+    height: 40px;
+}
+.contents tbody img{
+    width: 25px;
+    height: 25px;
+}
+.contents a{
+    color: #4991db;
+}
+.red-dot {
+    color: red;
+    background-color: red;
+  }
+  
+.green-dot {
+    color: #4caf50;
+    background-color: #4caf50;
+}
+.red-dot, .green-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    float: left;
+  }
+.newItem{
+    border:0.5px solid grey;
+    padding: 10px;
+}
+.newItem input,select{
+    /* max-width: 300px; */
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 20%;
+    margin-right: 34px;
+}
+
+
+
+
+/* Dropdown Button */
+.dropbtn {
+    /* background-color: #4CAF50; */
+    /* color: white; */
+    /* padding: 16px; */
+    /* font-size: 16px; */
+    border: none;
+    /* cursor: pointer; */
+  }
+  
+  /* Dropdown button on hover & focus */
+  /* .dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+  } */
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu */
+  .show {display:block;}
+  

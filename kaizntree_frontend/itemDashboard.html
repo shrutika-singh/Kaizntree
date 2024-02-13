@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+    <script src="JavaScript/itemDashboard.js"></script>
+    <!-- <link rel="stylesheet" href="CSS/SideNav.css"></link> -->
+    <link rel="stylesheet" href="CSS/itemDashboard.css"></link>
+  </head>
+  <body>
+    <div id="sidebar-placeholder"></div>
+    <nav class="sidebar">
+      <!-- Inline CSS -->
+      <style>
+        .sidebar {
+              height: 100vh;
+              width: 230px;
+              position: fixed;
+              left: 0;
+              top: 0;
+              overflow-x: hidden;
+              padding-top: 20px;
+              border-right: 5px solid #2fa1ff;
+          }
+          .sidebar-nav {
+              list-style-type: none;
+              padding-left: 0; /* Remove padding to align with the start of the sidebar */
+              margin: 0 0 0 10px; /* Remove default margin */
+          }
+          .nav-item {
+              display: flex; /* Align the icon and text in a row */
+              align-items: center; /* Vertically center the icon and text */
+              margin-bottom: 10px; /* Space between menu items */
+          }
+          .nav-item:hover .nav-link {
+              background-color: #d7d3d3;
+          }
+          .active .nav-link {
+              background-color: grey; /* Same background color as hover */
+  }
+          .nav-link {
+              display: flex;
+              align-items: center;
+              width: 100%; /* Full width */
+              box-sizing: border-box; /* Include padding in width */
+              text-decoration: none;
+              color: black;
+          }
+          .nav-icon {
+              height: 50px;
+              width: 50px;
+              margin-right: 10px; /* Space between the icon and text */
+          }
+          .nav-text {
+              padding: 15px;
+              color: rgb(96, 94, 94);
+              font-weight: bold;
+          }
+          .sidebar-nav a {
+              text-decoration: none;
+              color: inherit; /* Ensure links use the current text color */
+          }
+      </style>
+  
+      <!-- Sidebar content -->
+      <ul class="sidebar-nav">
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <img src="images/home.png" alt="Home" class="nav-icon">
+                  <span class="nav-text">Home</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <img src="images/home.png" alt="Items" class="nav-icon">
+                  <span class="nav-text">Items</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <img src="images/home.png" alt="Items" class="nav-icon">
+                  <span class="nav-text">Stock</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <img src="images/home.png" alt="Items" class="nav-icon">
+                  <span class="nav-text">Build</span>
+              </a>
+          </li>
+      </ul>
+  </nav>
+
+  
+
+
+    <div style="margin: 30px; margin-left: 250px;">
+        <h1>Item Dashboard</h1>
+        <h5>All Items</h5>
+        <button type="button" class="addNewCategory">ADD NEW CATEGORY</button>
+        <div style="background-color: #dddddd; height: 35px;">
+            <p style="padding: 9px;color:#5b5b5b">4 Sub categories</p>
+        </div>
+        <div class='itemsTable'>
+            <div style="display: flex; margin-bottom: 10px;">
+                <div style="text-align:left; width: 50%;">
+                    <button type="button" class="addNewCategory" onclick="openNewItemForm()">NEW ITEM</button>
+                    <button type="button" class="optionsButton">OPTIONS</button>
+                </div>
+                <div style="width: 50%; display: flex;">
+                  <div style="text-align: left; width: 70%;border-bottom: 1px solid gray;">
+                    <input type="search" placeholder="Search" class="search" id="search">
+                    <button onclick="searchItems()" style="border: none;
+                    background: none;">
+                      <img src="images/search.png" style="width: 16px; height: 16px;"></img>
+                    </button>
+                  </div>
+                  <div style="width :30%;margin-left: 27px">
+                    <img src="images/sort.png" style="width: 35px; height: 35px;margin-right: 20px;"></img>
+                    <button class="dropbtn" onclick="toggleDropdown()">
+                      <img src="images/filter.png" style="width: 35px; height: 35px;"></img>
+                    </button>
+                    <div id="filterDropdown" class="dropdown-content">
+                      <a href="#" onclick="filterSelection('low_stock')">Low Stock</a>
+                      <a href="#" onclick="filterSelection('out_of_stock')">Out of Stock</a>
+                      <a href="#" onclick="filterSelection('in_stock')">In Stock</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div style="display: none;" id="newItem" class="newItem">
+              <form>
+                <div>
+                  <label for="SKU">SKU</label>
+                  <input type="text" name="SKU" id="SKU">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name">
+                  <label for="tags">Tags</label>
+                  <select id="tags" name="tags" value ='' multiple>
+                    <option value="1">Etsy</option>
+                    <option value="2">settings</option>
+                    <option value="3">Price</option>
+                    <option value="4">In cart</option>
+                    <option value="5">Work in Progress</option>
+                    <option value="6">Shopee</option>
+                    <option value="7">xero</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="category">Category</label>
+                  <select id="category" name="category" value =''>
+                    <option value="1">Bundles</option>
+                    <option value="2">Raw Materials</option>
+                    <option value="3">Finished Products</option>               
+                  </select>
+                  <label for="inStock">In Stock</label>
+                  <input type="number" id="inStock" name="inStock">
+                  <label for="availableStock">Available Stock</label>
+                  <input type="number" id="availableStock" name="availableStock">
+                  <button type="submit" class="addNewCategory" onclick="addNewItem(event)">ADD</button>
+                </div>
+              </form>
+            </div>
+            <table class="contents">
+                <colgroup>
+                    <col style="width: 5%;">
+                    <col style="width: 15%;">
+                    <col style="width: 20%;">
+                    <col style="width: 15%;">
+                    <col style="width: 15%;">
+                    <col style="width: 15%;">
+                    <col style="width: 15%;">
+                  </colgroup>
+                <thead>
+                  <tr>
+                    <th><input type="checkbox"></th>
+                    <th>SKU</th>
+                    <th>Name</th>
+                    <th>Tags</th>
+                    <th>Category</th>
+                    <th>In Stock</th>
+                    <th>Available Stock</th>
+                  </tr>
+                </thead>
+                <tbody style="margin-top: 10px;">
+                  <!-- <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>ETSY-FOREST</td>
+                    <td>Etsy Bundle Pack</td>
+                    <td>Etsy, ⭐, 📦</td>
+                    <td>Bundles</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr> -->
+                  <!-- <tr >
+                    <td>ETSY-FOREST</td>
+                    <td>ETSY-FOREST</td>
+                    <td>Etsy Bundle Pack</td>
+                    <td>Etsy, ⭐, 📦</td>
+                    <td>Bundles</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr> -->
+                  <!-- More rows as needed -->
+                </tbody>
+              </table>
+              
+        </div>
+    </div>
+  </body>
+</html>

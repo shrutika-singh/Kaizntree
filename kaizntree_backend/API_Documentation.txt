@@ -1,0 +1,58 @@
+
+1.Create a username and Password in DB by running the following command from terminal in the kaizntree_backend folder:
+    from django.contrib.auth.models import User
+    user = User.objects.create_user('myusername', password='mypassword')
+
+
+2. Obtain Auth Token
+URL: /api-token-auth/
+Method: POST
+Description: Obtain an authentication token using your username and password.
+    {
+    "username": "yourUsername",
+    "password": "yourPassword"
+    }
+Success Response:
+Code: 200 OK
+    Content:
+    {
+    "token": "9f3f...yourToken...e83a"
+    }
+Error Response:
+Code: 400 Bad Request
+Content:
+    {
+    "error": "Wrong Credentials"
+    }
+
+
+3. List Items
+** Refer readme.txt to create entries in the DB before hitting this API **
+URL: /items/
+Method: GET
+Description: Retrieve a list of items. Requires authentication.
+Headers:
+Authorization: Token <yourToken>
+Query Parameters:
+stock_status (optional): Filter items by stock status (in_stock, out_of_stock, or low_stock).
+search (optional): Search for items by name or SKU.
+Success Response:
+Code: 200 OK
+Content (example):
+[
+  {
+    "SKU": "ETSY-FOREST",
+    "name": "Etsy Bundle pack",
+    "category": 2,
+    "tags": [1, 2, 3, 4],
+    "stock_status": "in_stock",
+    "available_stock": 0,
+    "in_stock": 0
+  }
+]
+Error Response:
+Code: 401 Unauthorized
+Content:
+{
+  "detail": "Authentication credentials were not provided."
+}

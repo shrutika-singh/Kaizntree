@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+    <link rel="stylesheet" href="CSS/login.css"></link>
+    <script src="JavaScript/login_page.js"></script>
+  </head>
+  <body>
+    <div class="loginPage">
+        <div style="text-align: center;">
+            <img src="images/logo.png" class="logo" />
+        </div>
+        <form>
+            <div>
+                <input id="username" type="text" placeholder="Username" required/>
+            </div>
+            <div>
+                <input id="password" type="password" placeholder="Password" required/>
+            </div>
+            <div class="button-container">
+                <button type="button">CREATE ACCOUNT</button>
+                <button type="button" onclick="obtainAuthToken()">LOG IN</button>
+            </div>
+        </form>
+        <div>
+            <a href="">Forgot Password</a>
+        </div>
+    </div>
+  </body>
+</html>

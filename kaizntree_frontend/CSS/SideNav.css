@@ -1,0 +1,60 @@
+.sidebar {
+    height: 100vh;
+    width: 230px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: 5px solid blue;
+}
+.sidebar-nav {
+    list-style-type: none;
+    padding-left: 0; /* Remove padding to align with the start of the sidebar */
+    margin: 0 0 0 10px; /* Remove default margin */
+}
+.nav-item {
+    display: flex; /* Align the icon and text in a row */
+    align-items: center; /* Vertically center the icon and text */
+    margin-bottom: 10px; /* Space between menu items */
+}
+.nav-item:hover .nav-link {
+    background-color: #d7d3d3;
+}
+.active .nav-link {
+    background-color: grey; /* Same background color as hover */
+}
+.nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width */
+    text-decoration: none;
+    color: black;
+}
+.nav-icon {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px; /* Space between the icon and text */
+}
+.nav-text {
+    padding: 15px;
+    color: rgb(96, 94, 94);
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: inherit; /* Ensure links use the current text color */
+}
+/* Responsive adjustments might be necessary depending on your layout */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px; /* Smaller sidebar for mobile */
+    }
+    .nav-text {
+        display: none; /* Hide text on smaller screens */
+    }
+    .nav-icon {
+        margin: 0; /* Remove margin when text is not displayed */
+    }
+}
